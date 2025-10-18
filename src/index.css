@@ -28,6 +28,8 @@ body {
   place-items: center;
   min-width: 320px;
   min-height: 100vh;
+  color: #fff;
+  font-family: Georgia, 'Times New Roman', Times, serif;
 }
 
 h1 {
@@ -67,13 +69,41 @@ button:focus-visible {
   }
 }
 
-.portfolio-background{
+.portfolio-background {
+  position: relative;
+  margin: 0;
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+  perspective: 1000px; /* Enables 3D depth perception */
+}
+
+.portfolio-background::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+
   background-image: url('./assets/MEARN.jpg');
   background-size: cover;
-  background-position: center center;
+  background-position: center;
   background-repeat: no-repeat;
-  background-attachment: fixed; /* Optional: keeps the background fixed when scrolling */
-  margin: 0; /* Removes default body margin */
-  height: 100vh; /* Ensures the body covers the full viewport height */
-  width: 100vw; /* Ensures the body covers the full viewport width */
+
+  filter: blur(12px) brightness(0.8); /* strong blur + slight darkening */
+  transform: scale(1.2) translateZ(-100px) rotateX(10deg); /* 3D tilt + depth */
+  transform-origin: center;
+  z-index: -1;
+
+  transition: transform 1.5s ease, filter 1s ease;
 }
+
+/* Optional: subtle motion when hovering */
+.portfolio-background:hover::before {
+  transform: scale(1.25) translateZ(-150px) rotateX(15deg) rotateY(5deg);
+  filter: blur(14px) brightness(0.7);
+}
+
+@import "tailwindcss";
+
