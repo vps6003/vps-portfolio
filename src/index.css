@@ -66,3 +66,14 @@ button:focus-visible {
     background-color: #f9f9f9;
   }
 }
+
+.portfolio-background{
+  background-image: url('./assets/MEARN.jpg');
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-attachment: fixed; /* Optional: keeps the background fixed when scrolling */
+  margin: 0; /* Removes default body margin */
+  height: 100vh; /* Ensures the body covers the full viewport height */
+  width: 100vw; /* Ensures the body covers the full viewport width */
+}
