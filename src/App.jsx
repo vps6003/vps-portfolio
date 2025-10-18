@@ -3,6 +3,7 @@ import { Navbar } from "./components/navigation/Navbar";
 import {Home} from "./containers/HomePage";
 import {Contact} from "./containers/ContactPage";
 import {About} from "./containers/AboutPage";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 function App() {
   return (
