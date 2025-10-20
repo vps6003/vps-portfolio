@@ -1,4 +1,4 @@
-import { Routes, Route, useLocation } from "react-router-dom";
+import { Routes, Route, useLocation, Navigate } from "react-router-dom";
 import { AnimatePresence } from "framer-motion";
 
 import { Home } from "../../containers/HomePage";
@@ -11,8 +11,12 @@ export default function AnimatedRoutes() {
 
   const routes = [
     {
-      path: "/",
+      path: "/home",
       component: <Home />,
+    },
+    {
+      path: "*",
+      component: <Navigate to ="/home" replace />,
     },
     {
       path: "/about",

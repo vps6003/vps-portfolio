@@ -4,6 +4,7 @@ import AnimatedRoutes from "./components/animations/AnimatedRoutes";
 // import BackgroundMusic from "./components/BackgroundMusic";
 // import BackgroundAudio from "./assets/faded-electric-piano-version-180274.mp3";
 import {Spacer} from "./components/navigation/Spacer";
+import {PageWrapper} from "./components/animations/PageWrapper";
 
 function App() {
   return (
@@ -11,7 +12,10 @@ function App() {
       {/* <BackgroundMusic src={BackgroundAudio}/> */}
       <Navbar /> {/* stays static */}
       <Spacer />
+      <PageWrapper>
+
       <AnimatedRoutes /> {/* contains routes + animations */}
+      </PageWrapper>
       <Spacer />
     </div>
   );
