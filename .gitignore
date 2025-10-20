@@ -13,6 +13,9 @@ dist-ssr
 *.local
 .env
 
+#images
+basic-portfolio-structure.png
+
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json

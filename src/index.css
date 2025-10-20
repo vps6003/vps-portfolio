@@ -3,6 +3,9 @@
   line-height: 1.5;
   font-weight: 400;
 
+  margin : 0 !important;
+  padding: 0 !important;
+
   color-scheme: light dark;
   color: rgba(255, 255, 255, 0.87);
   background-color: #242424;
@@ -91,7 +94,7 @@ button:focus-visible {
   background-position: center;
   background-repeat: no-repeat;
 
-  filter: blur(12px) brightness(0.8); /* strong blur + slight darkening */
+  filter: blur(15px) brightness(0.5); /* strong blur + slight darkening */
   transform: scale(1.2) translateZ(-100px) rotateX(10deg); /* 3D tilt + depth */
   transform-origin: center;
   z-index: -1;
@@ -101,9 +104,32 @@ button:focus-visible {
 
 /* Optional: subtle motion when hovering */
 .portfolio-background:hover::before {
-  transform: scale(1.25) translateZ(-150px) rotateX(15deg) rotateY(5deg);
-  filter: blur(14px) brightness(0.7);
+  transform: scale(1.25) translateZ(-100px) rotateX(15deg) rotateY(5deg);
+  filter: blur(14px) brightness(0.4);
 }
 
 @import "tailwindcss";
+
+/* Or specifically for root/body */
+html, body {
+  margin: 0;
+  padding: 0;
+}
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbar for IE, Edge */
+-ms-overflow-style: none;
+
+/* Hide scrollbar for Firefox */
+scrollbar-width: none;
+
+/* Apply to the whole page */
+body {
+  overflow: auto; /* keeps scrolling functional */
+}
+
 

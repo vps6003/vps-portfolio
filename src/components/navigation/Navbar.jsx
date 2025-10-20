@@ -37,7 +37,7 @@ export const Navbar = () => {
               style={({ isActive }) => ({
                 textDecoration: "none",
                 width: "100%",
-                color: isActive ? "blue" : "white",
+                color: isActive ? "blue" : "black",
               })}
             >
               <ListItemText primary={item.label} sx={{ pl: 2, py: 1.5 }} />
@@ -55,7 +55,7 @@ export const Navbar = () => {
         elevation={1}
         sx={{
           backdropFilter: "blur(5rem)",
-          backgroundColor: "transparent",
+          backgroundColor: "#1b293b",
           color: "aquamarine",
         }}
       >
@@ -83,7 +83,7 @@ export const Navbar = () => {
               letterSpacing: "0.2rem",
             }}
           >
-            VPS
+            VPS-Portfolio
           </Typography>
 
           {/* Desktop Links */}

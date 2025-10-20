@@ -1,9 +1,9 @@
-import React from "react";
+import { AnimatedContent } from "../components/animations/AnimatedContent"
 
 export const Contact = () =>{
     return (
-        <div>
+        <AnimatedContent>
             Contact Page works!
-        </div>
+        </AnimatedContent>
     )
 }
