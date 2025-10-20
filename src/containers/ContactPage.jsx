@@ -1,11 +1,12 @@
-// src/containers/ContactPage.jsx
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { AnimatedContent } from "../components/animations/AnimatedContent";
 import { FaGithub, FaCodepen, FaHackerrank, FaLinkedin, FaInstagram } from "react-icons/fa";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 export const Contact = () => {
+  const navigate = useNavigate();
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -16,31 +17,29 @@ export const Contact = () => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
- const handleSubmit = (e) => {
-  e.preventDefault();
+  const handleSubmit = (e) => {
+    e.preventDefault();
 
-  // Trigger mailto
-  window.location.href = `mailto:vaibhavsaraf.2007@gmail.com?subject=From%20Portfolio&body=${encodeURIComponent(
-    formData.message
-  )}`;
+    // Trigger mailto
+    window.location.href = `mailto:vaibhavsaraf.2007@gmail.com?subject=From%20Portfolio&body=${encodeURIComponent(
+      formData.message
+    )}`;
 
-  // Delay the toast slightly to simulate "after mail client opens"
-  setTimeout(() => {
-    toast.success("Message triggered! Please check your email client.", {
-      position: "top-right",
-      autoClose: 3000,
-      hideProgressBar: false,
-      closeOnClick: true,
-      pauseOnHover: true,
-      draggable: true,
-      theme: "colored",
-    });
-  }, 300); // 300ms delay
+    setTimeout(() => {
+      toast.success("Message triggered! Please check your email client.", {
+        position: "top-right",
+        autoClose: 3000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        theme: "colored",
+      });
+    }, 300);
 
-  setFormData({ name: "", email: "", message: "" });
-};
+    setFormData({ name: "", email: "", message: "" });
+  };
 
-  // Dynamic social links array
   const socialLinks = [
     { name: "GitHub", url: "https://github.com/vps6003", icon: <FaGithub />, color: "text-blue-500" },
     { name: "CodeChef", url: "https://www.codechef.com/users/vps_2511", icon: <FaCodepen />, color: "text-yellow-500" },
@@ -48,6 +47,9 @@ export const Contact = () => {
     { name: "LinkedIn", url: "https://www.linkedin.com/in/vaibhav-prakash-saraf-548358a5/", icon: <FaLinkedin />, color: "text-blue-700" },
     { name: "Instagram", url: "https://www.instagram.com/vps_505/", icon: <FaInstagram />, color: "text-pink-500" },
   ];
+
+  const buttonClass =
+    "px-6 py-3 !bg-blue-600 hover:!bg-blue-700 text-white rounded-lg font-semibold transition-all duration-300";
 
   return (
     <AnimatedContent>
@@ -58,7 +60,7 @@ export const Contact = () => {
           reach out. I’ll get back to you as soon as possible.
         </p>
 
-        {/* Social / Profile Links dynamically */}
+        {/* Social / Profile Links */}
         <div className="flex flex-wrap items-center justify-center gap-6 mb-10 text-2xl">
           {socialLinks.map((social) => (
             <a
@@ -162,9 +164,18 @@ export const Contact = () => {
               Send Message
             </button>
           </form>
+
+          {/* Navigation Buttons */}
+          <div className="flex flex-wrap gap-4 mt-8 justify-center">
+            <button className={buttonClass} onClick={() => navigate("/home")}>
+              Go to Home Page
+            </button>
+            <button className={buttonClass} onClick={() => navigate("/about")}>
+              Go to About Page
+            </button>
+          </div>
         </div>
 
-        {/* Toast Container */}
         <ToastContainer />
       </section>
     </AnimatedContent>
