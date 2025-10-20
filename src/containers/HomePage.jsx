@@ -1,6 +1,6 @@
 import { AnimatedContent } from "../components/animations/AnimatedContent";
 import { AvatarCard } from "../components/AvatarCard";
-import ProfileImage from "./../assets/profile.png"
+import ProfileImage from "./../assets/Profile.png"
 
 
 export const Home = () => {
