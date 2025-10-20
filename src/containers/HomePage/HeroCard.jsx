@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
-import ProfileImage from "../assets/Profile.png";
+import ProfileImage from "./../../assets/Profile.png";
 
-export const HeroCard = () => {
+export const HeroCard = (props) => {
   return (
     <section className="w-full min-h-[80vh] flex flex-col-reverse lg:flex-row items-center justify-center gap-8 lg:gap-14 px-4 sm:px-8 lg:px-16 py-12 bg-gradient-to-b from-gray-950 via-gray-900 to-gray-800 text-white overflow-hidden">
 
@@ -28,8 +28,8 @@ export const HeroCard = () => {
           viewport={{ once: true }}
         >
           <a
-            href="projects"
-            className="px-5 py-2.5 bg-blue-600 hover:bg-blue-700 rounded-lg text-white font-semibold transition-all"
+            onClick={props.onViewProfile}
+            className="px-5 py-2.5 bg-blue-600 hover:bg-blue-700 rounded-lg text-white font-semibold transition-all cursor-pointer"
           >
             
             <span className="text-white">

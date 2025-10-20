@@ -1,14 +1,12 @@
 import { Routes, Route, useLocation, Navigate } from "react-router-dom";
 import { AnimatePresence } from "framer-motion";
-
-import { Home } from "../../containers/HomePage";
-import { About } from "../../containers/AboutPage";
 import { Contact } from "../../containers/ContactPage";
 import AnimatedPage from "./AnimatedPage";
+import { Home } from "../../containers/HomePage/HomePage";
+import { About } from "../../containers/AboutPage/AboutPage";
 
 export default function AnimatedRoutes() {
   const location = useLocation();
-
   const routes = [
     {
       path: "/home",
@@ -16,7 +14,7 @@ export default function AnimatedRoutes() {
     },
     {
       path: "*",
-      component: <Navigate to ="/home" replace />,
+      component: <Navigate to="/home" replace />,
     },
     {
       path: "/about",
@@ -43,17 +41,11 @@ export default function AnimatedRoutes() {
         </Routes>
       </AnimatePresence> */}
 
-        <Routes location={location} key={location.pathname}>
-          {routes.map((route) => (
-            <Route
-              path={route.path}
-              element={
-                route.component
-              }
-            />
-          ))}
-        </Routes>
-      
+      <Routes location={location} key={location.pathname}>
+        {routes.map((route) => (
+          <Route path={route.path} element={route.component} />
+        ))}
+      </Routes>
     </>
   );
 }
