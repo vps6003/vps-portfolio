@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
 import {
   AppBar,
   Box,
@@ -10,21 +10,21 @@ import {
   ListItemText,
   Toolbar,
   Typography,
-} from '@mui/material';
-import MenuIcon from '@mui/icons-material/Menu';
-import { NavLink } from 'react-router-dom';
+} from "@mui/material";
+import MenuIcon from "@mui/icons-material/Menu";
+import { NavLink } from "react-router-dom";
 
 const navLinks = [
-  { label: 'Home', to: '/' },
-  { label: 'About', to: '/about' },
-  { label: 'Contact', to: '/contact' },
+  { label: "Home", to: "/" },
+  { label: "About", to: "/about" },
+  { label: "Contact", to: "/contact" },
 ];
 
 export const Navbar = () => {
   const [mobileOpen, setMobileOpen] = useState(false);
 
   const toggleDrawer = () => {
-    setMobileOpen((prev) => !prev);
+    setMobileOpen(!mobileOpen);
   };
 
   const drawer = (
@@ -35,9 +35,9 @@ export const Navbar = () => {
             <NavLink
               to={item.to}
               style={({ isActive }) => ({
-                textDecoration: 'none',
-                width: '100%',
-                color: isActive ? 'blue' : 'black',
+                textDecoration: "none",
+                width: "100%",
+                color: isActive ? "blue" : "black",
               })}
             >
               <ListItemText primary={item.label} sx={{ pl: 2, py: 1.5 }} />
@@ -51,22 +51,19 @@ export const Navbar = () => {
   return (
     <>
       <AppBar
-        position="static"
-        elevation={0}
-        sx={{ backgroundColor: 'transparent', color: 'black' }}
+        position="fixed"
+        elevation={1}
+        sx={{
+          backdropFilter: "blur(5rem)",
+          backgroundColor: "#1b293b",
+          color: "aquamarine",
+        }}
       >
         <Toolbar>
-          {/* Mobile Menu Icon */}
+          {/* Mobile Hamburger Menu */}
           <IconButton
             edge="start"
-            sx={{
-              display: { xs: 'block', sm: 'none' },
-              mr: 2,
-              '&:hover': {
-                color: 'blue',
-                backgroundColor: 'rgba(0, 0, 0, 0.05)',
-              },
-            }}
+            sx={{ display: { xs: "block", sm: "none" }, mr: 2 }}
             onClick={toggleDrawer}
             color="inherit"
             aria-label="menu"
@@ -74,12 +71,23 @@ export const Navbar = () => {
             <MenuIcon />
           </IconButton>
 
-          <Typography variant="h6" sx={{ flexGrow: 1 }}>
-            VPS
+          <Typography
+            variant="h5"
+            sx={{
+              flexGrow: 1,
+              fontSize: "2rem",
+              fontWeight: "bold",
+              background: "linear-gradient(red,yellow , aquamarine , aquamarine)",
+              WebkitBackgroundClip: "text", // important for gradient text
+              WebkitTextFillColor: "transparent", // make text color transparent
+              letterSpacing: "0.2rem",
+            }}
+          >
+            VPS-Portfolio
           </Typography>
 
-          {/* Desktop Nav Buttons */}
-          <Box sx={{ display: { xs: 'none', sm: 'flex' } }}>
+          {/* Desktop Links */}
+          <Box sx={{ display: { xs: "none", sm: "flex" } }}>
             {navLinks.map((item) => (
               <Button
                 key={item.to}
@@ -87,15 +95,12 @@ export const Navbar = () => {
                 to={item.to}
                 sx={{
                   mx: 1,
-                  color: 'inherit',
-                  textTransform: 'none',
-                  '&.active': {
-                    color: 'blue',
-                    fontWeight: 'bold',
-                  },
-                  '&:hover': {
-                    color: 'blue',
-                    backgroundColor: 'rgba(0, 0, 0, 0.05)',
+                  textTransform: "none",
+                  color: "white",
+                  "&.active": { color: "aquamarine", fontWeight: "bold" },
+                  "&:hover": {
+                    color: "blue",
+                    backgroundColor: "rgba(0,0,0,0.05)",
                   },
                 }}
               >
@@ -106,6 +111,7 @@ export const Navbar = () => {
         </Toolbar>
       </AppBar>
 
+      {/* Mobile Drawer */}
       <Drawer
         anchor="left"
         open={mobileOpen}
@@ -114,6 +120,9 @@ export const Navbar = () => {
       >
         {drawer}
       </Drawer>
+
+      {/* Add top padding so content is not hidden behind AppBar */}
+      <Box sx={{ pt: 8 }} />
     </>
   );
 };

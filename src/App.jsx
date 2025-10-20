@@ -1,22 +1,19 @@
 import "./App.css";
 import { Navbar } from "./components/navigation/Navbar";
-import {Home} from "./containers/HomePage";
-import {Contact} from "./containers/ContactPage";
-import {About} from "./containers/AboutPage";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import AnimatedRoutes from "./components/animations/AnimatedRoutes";
+// import BackgroundMusic from "./components/BackgroundMusic";
+// import BackgroundAudio from "./assets/faded-electric-piano-version-180274.mp3";
+import {Spacer} from "./components/navigation/Spacer";
 
 function App() {
   return (
-    <>
-      <div>
-        <Navbar />
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/contact" element={<Contact />} />
-        </Routes>
-      </div>
-    </>
+    <div className="w-screen h-screen overflow-auto !left-0 !m-0 !p-0">
+      {/* <BackgroundMusic src={BackgroundAudio}/> */}
+      <Navbar /> {/* stays static */}
+      <Spacer />
+      <AnimatedRoutes /> {/* contains routes + animations */}
+      <Spacer />
+    </div>
   );
 }
 
