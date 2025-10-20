@@ -9,8 +9,8 @@ export const ExperienceCard = ({
   skills,
 }) => {
   return (
-    <div className="xl:w-[114%] w-full bg-gray-900/60 border border-gray-700 hover:border-gray-500 transition-all duration-300 rounded-2xl w-full shadow-lg">
-      <div className="xl:w-[100%] p-5 flex flex-col sm:flex-row gap-4">
+    <div className="w-full bg-gray-900/60 border border-gray-700 hover:border-gray-500 transition-all duration-300 rounded-2xl w-full shadow-lg">
+      <div className="p-5 flex flex-col sm:flex-row gap-4">
         {/* Company Logo */}
         {logo && (
           <div className="flex-shrink-0 w-16 h-16  rounded-full overflow-hidden bg-gray-800">
