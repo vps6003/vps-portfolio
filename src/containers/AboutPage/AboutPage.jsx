@@ -7,20 +7,21 @@ import "swiper/css";
 import "swiper/css/navigation";
 import { Autoplay, Navigation, Pagination } from "swiper/modules";
 import { useEffect, useRef } from "react";
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 
 export const About = () => {
   const location = useLocation();
+  const navigate = useNavigate();
   const experienceRef = useRef();
 
-  useEffect(()=>{
-    if(location.state?.scrollTo == "experience" && experienceRef.current){
-      experienceRef.current.scrollIntoView({behavior: "smooth"});
+  useEffect(() => {
+    if (location.state?.scrollTo === "experience" && experienceRef.current) {
+      experienceRef.current.scrollIntoView({ behavior: "smooth" });
     }
-  },[location]);
+  }, [location]);
 
   const imageClass = "rounded-full w-full h-full object-cover";
-  const imageContainerClass = "w-24 h-24 sm:w-28 sm:h-28 md:w-32 md:h-32";
+  const imageContainerClass = "w-24 h-24 sm:w-28 md:w-32";
 
   const skills = [
     "MEAN / MERN",
@@ -34,16 +35,11 @@ export const About = () => {
     "Data Structures",
   ];
 
-  const hobbies = [
-    "Competitive Coding",
-    "Chess",
-    "Sudoku",
-    "Table Tennis",
-    "Guitar",
-    "Kabaddi",
-  ];
-
+  const hobbies = ["Competitive Coding", "Chess", "Sudoku", "Table Tennis", "Guitar", "Kabaddi"];
   const showSwiper = hobbies.length > 3;
+
+  const buttonClass =
+    "px-6 py-3 !bg-blue-600 hover:!bg-blue-700 text-white rounded-lg font-semibold transition-all duration-300";
 
   return (
     <div className="min-h-screen w-full bg-transparent backdrop-blur-sm overflow-y-auto">
@@ -59,7 +55,6 @@ export const About = () => {
                   imageContainerClass={imageContainerClass}
                 />
               </div>
-
               <div className="text-gray-200 text-center md:text-left flex-1 md:ml-6">
                 <p className="text-sm sm:text-base md:text-lg leading-relaxed">
                   Hi, I'm{" "}
@@ -102,7 +97,7 @@ export const About = () => {
         {/* Row 2 - EXPERIENCE */}
         <div className="lg:col-span-4" ref={experienceRef}>
           <AnimatedContent>
-            <div className="bg-gray-700/40 p-6 h-[300px] sm:p-8 rounded-2xl text-white shadow-lg hover:scale-[1.02] transition-transform duration-300 h-full">
+            <div className="bg-gray-700/40 p-6 sm:p-8 rounded-2xl text-white shadow-lg hover:scale-[1.02] transition-transform duration-300 h-full">
               <Experience />
             </div>
           </AnimatedContent>
@@ -117,7 +112,6 @@ export const About = () => {
                   Hobbies :
                 </h2>
 
-                {/* Show list inline when <= 3 */}
                 {!showSwiper && (
                   <ul className="flex flex-wrap items-center ml-2 space-x-4 text-sm sm:text-base md:text-lg">
                     {hobbies.map((hobby, i) => (
@@ -126,7 +120,6 @@ export const About = () => {
                   </ul>
                 )}
 
-                {/* Swiper inline when > 3 */}
                 {showSwiper && (
                   <div className="flex-1 lg:mt-[6px] min-w-[200px]">
                     <Swiper
@@ -143,9 +136,7 @@ export const About = () => {
                     >
                       {hobbies.map((hobby, i) => (
                         <SwiperSlide key={i}>
-                          <div className="text-sm sm:text-base md:text-lg">
-                            {hobby}
-                          </div>
+                          <div className="text-sm sm:text-base md:text-lg">{hobby}</div>
                         </SwiperSlide>
                       ))}
                     </Swiper>
@@ -154,6 +145,16 @@ export const About = () => {
               </div>
             </div>
           </AnimatedContent>
+        </div>
+
+        {/* Navigation Buttons */}
+        <div className="lg:col-span-4 flex flex-wrap gap-4 mt-8">
+          <button className={buttonClass} onClick={() => navigate("/home")}>
+            Go to Home Page
+          </button>
+          <button className={buttonClass} onClick={() => navigate("/contact")}>
+            Go to Contact Page
+          </button>
         </div>
       </div>
     </div>
