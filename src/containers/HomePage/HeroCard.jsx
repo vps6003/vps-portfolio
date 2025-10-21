@@ -37,7 +37,7 @@ export const HeroCard = (props) => {
               </span>
           </a>
           <a
-            href="/contact"
+            href="/#/contact"
             className="px-5 py-2.5 border border-blue-500 hover:bg-blue-500/20 rounded-lg text-blue-400 font-semibold transition-all"
           >
             Contact Me
