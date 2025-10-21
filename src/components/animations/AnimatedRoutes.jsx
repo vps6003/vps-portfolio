@@ -7,14 +7,11 @@ import { About } from "../../containers/AboutPage/AboutPage";
 
 export default function AnimatedRoutes() {
   const location = useLocation();
+
   const routes = [
     {
       path: "/home",
       component: <Home />,
-    },
-    {
-      path: "*",
-      component: <Navigate to="/home" replace />,
     },
     {
       path: "/about",
@@ -24,28 +21,23 @@ export default function AnimatedRoutes() {
       path: "/contact",
       component: <Contact />,
     },
+    {
+      path: "*", // wildcard must come last
+      component: <Navigate to="/home" replace />,
+    },
   ];
 
   return (
-    <>
-      {/* <AnimatePresence mode="wait">
-        <Routes location={location} key={location.pathname}>
-          {routes.map((route) => (
-            <Route
-              path={route.path}
-              element={
-                <AnimatedPage key={route.path}>{route.component}</AnimatedPage>
-              }
-            />
-          ))}
-        </Routes>
-      </AnimatePresence> */}
-
+    <AnimatePresence mode="wait">
       <Routes location={location} key={location.pathname}>
         {routes.map((route) => (
-          <Route path={route.path} element={route.component} />
+          <Route
+            key={route.path}
+            path={route.path}
+            element={<AnimatedPage>{route.component}</AnimatedPage>}
+          />
         ))}
       </Routes>
-    </>
+    </AnimatePresence>
   );
 }
