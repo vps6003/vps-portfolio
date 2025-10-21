@@ -21,7 +21,7 @@ export const About = () => {
   }, [location]);
 
   const imageClass = "rounded-full w-full h-full object-cover";
-  const imageContainerClass = "w-24 h-24 sm:w-28 md:w-32";
+  const imageContainerClass = "w-24 h-24 sm:w-28 sm:h-28 md:w-32 md:h-32";
 
   const skills = [
     "MEAN / MERN",
@@ -35,7 +35,7 @@ export const About = () => {
     "Data Structures",
   ];
 
-  const hobbies = ["Competitive Coding", "Chess", "Sudoku", "Table Tennis", "Guitar", "Kabaddi"];
+  const hobbies = ["Competitive Coding (📈💻)", "Chess(♞♛)", "Sudoku(🔢✏️)", "Table Tennis(🏓⚪)", "Guitar(𝄞🎸)", "Kabaddi(🤼‍♂️🏅)"];
   const mobileHobbiesIcon = ["📈💻", "♞♛", "🔢✏️", "🏓⚪", "𝄞🎸", "🤼‍♂️🏅"];
   const showSwiper = hobbies.length > 3;
 
