@@ -121,15 +121,16 @@ html, body {
   display: none;
 }
 
-/* Hide scrollbar for IE, Edge */
--ms-overflow-style: none;
 
-/* Hide scrollbar for Firefox */
-scrollbar-width: none;
 
 /* Apply to the whole page */
 body {
   overflow: auto; /* keeps scrolling functional */
+  /* Hide scrollbar for IE, Edge */
+-ms-overflow-style: none;
+
+/* Hide scrollbar for Firefox */
+scrollbar-width: none;
 }
 
 

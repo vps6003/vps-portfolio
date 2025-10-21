@@ -53,7 +53,7 @@ export const Experience = () => {
   ];
 
   return (
-    <section className="py-10 px-5 sm:px-8 md:px-16 lg:px-20 bg-gray-700 backdrop-blur min-h-[100px] sm:min-h-[120px] md:min-h-[130px] lg:min-h-[150px] xl:min-h-[160px]">
+    <section className="rounded-xl py-4 px-2 sm:px-4 md:px-8 lg:px-12 bg-gray-700 backdrop-blur min-h-[100px] sm:min-h-[120px] md:min-h-[130px] lg:min-h-[150px] xl:min-h-[160px]">
       <h2 className="text-3xl sm:text-3xl md:text-4xl font-bold text-white mb-8 text-center sm:text-left underline">
         Experience
       </h2>
@@ -62,7 +62,7 @@ export const Experience = () => {
         {experiences.map((exp, index) => (
           <div
             key={index}
-            className="w-full max-w-[90%] sm:max-w-[350px] md:max-w-[400px] lg:max-w-[450px] xl:max-w-[500px] "
+            className="w-full max-w-[100%]"
           >
             <ExperienceCard {...exp} />
           </div>
