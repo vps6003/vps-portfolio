@@ -13,10 +13,6 @@ export default function AnimatedRoutes() {
       component: <Home />,
     },
     {
-      path: "*",
-      component: <Navigate to="/home" replace />,
-    },
-    {
       path: "/about",
       component: <About />,
     },
@@ -24,11 +20,15 @@ export default function AnimatedRoutes() {
       path: "/contact",
       component: <Contact />,
     },
+    {
+      path: "*",
+      component: <Navigate to="/home" replace />,
+    },
   ];
 
   return (
     <>
-      {/* <AnimatePresence mode="wait">
+      <AnimatePresence mode="wait">
         <Routes location={location} key={location.pathname}>
           {routes.map((route) => (
             <Route
@@ -39,13 +39,13 @@ export default function AnimatedRoutes() {
             />
           ))}
         </Routes>
-      </AnimatePresence> */}
-
+      </AnimatePresence>
+{/* 
       <Routes location={location} key={location.pathname}>
         {routes.map((route) => (
           <Route path={route.path} element={route.component} />
         ))}
-      </Routes>
+      </Routes> */}
     </>
   );
 }
