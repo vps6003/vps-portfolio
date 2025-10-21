@@ -36,6 +36,7 @@ export const About = () => {
   ];
 
   const hobbies = ["Competitive Coding", "Chess", "Sudoku", "Table Tennis", "Guitar", "Kabaddi"];
+  const mobileHobbiesIcon = ["📈💻", "♞♛", "🔢✏️", "🏓⚪", "𝄞🎸", "🤼‍♂️🏅"];
   const showSwiper = hobbies.length > 3;
 
   const buttonClass =
@@ -97,14 +98,14 @@ export const About = () => {
         {/* Row 2 - EXPERIENCE */}
         <div className="lg:col-span-4" ref={experienceRef}>
           <AnimatedContent>
-            <div className="bg-gray-700/40 p-6 sm:p-8 rounded-2xl text-white shadow-lg hover:scale-[1.02] transition-transform duration-300 h-full">
+            <div className="bg-gray-700/40  lg:p-8 rounded-2xl text-white shadow-lg hover:scale-[1.02] transition-transform duration-300 h-full">
               <Experience />
             </div>
           </AnimatedContent>
         </div>
 
-        {/* Row 3 - HOBBIES */}
-        <div className="lg:col-span-4">
+        {/* devices larger than mobile Row 3 - HOBBIES */}
+        <div className="hidden sm:block lg:col-span-4">
           <AnimatedContent>
             <div className="bg-cyan-600/70 text-white p-6 sm:p-8 rounded-2xl shadow-lg hover:scale-[1.02] transition-transform duration-300 h-full">
               <div className="flex flex-wrap items-center gap-4">
@@ -146,6 +147,50 @@ export const About = () => {
             </div>
           </AnimatedContent>
         </div>
+
+        {/* For Mobile Devices */}
+        {/* Row 3 - HOBBIES */}
+        <div className="block sm:hidden lg:col-span-4">
+          <AnimatedContent>
+            <div className="bg-cyan-600/70 text-white p-6 sm:p-8 rounded-2xl shadow-lg hover:scale-[1.02] transition-transform duration-300 h-full">
+              <div className="flex flex-wrap items-center gap-4">
+                <h2 className="text-xl sm:text-2xl font-semibold whitespace-nowrap text-green-300">
+                  Hobbies :
+                </h2>
+
+                {!showSwiper && (
+                  <ul className="flex flex-wrap items-center ml-2 space-x-4 text-sm sm:text-base md:text-lg">
+                    {mobileHobbiesIcon.map((hobby, i) => (
+                      <li key={i}>{hobby}</li>
+                    ))}
+                  </ul>
+                )}
+
+                {showSwiper && (
+                  <div className="flex-1 lg:mt-[6px] min-w-[200px]">
+                    <Swiper
+                      modules={[Navigation, Pagination, Autoplay]}
+                      spaceBetween={20}
+                      slidesPerView={3}
+                      autoplay={{ delay: 2000, disableOnInteraction: false }}
+                      loop={true}
+                      className="w-full"
+                    >
+                      {mobileHobbiesIcon.map((hobby, i) => (
+                        <SwiperSlide key={i}>
+                          <div className="text-sm">{hobby}</div>
+                        </SwiperSlide>
+                      ))}
+                    </Swiper>
+                  </div>
+                )}
+              </div>
+            </div>
+          </AnimatedContent>
+        </div>
+
+
+        
 
         {/* Navigation Buttons */}
         <div className="lg:col-span-4 flex flex-wrap gap-4 mt-8">
