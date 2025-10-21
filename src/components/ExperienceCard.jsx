@@ -15,11 +15,11 @@ export const ExperienceCard = ({
         <div className="flex flex-row gap-8">
 
         {logo && (
-          <div className="flex-shrink-0 w-16 h-16  rounded-full overflow-hidden bg-gray-800">
+          <div className="flex-shrink-0 w-24 h-24  rounded-full overflow-hidden bg-gray-800">
             <img
               src={logo}
               alt={`${company} logo`}
-              className="w-[full] h-full object-contain"
+              className="w-full h-full object-contain"
               />
           </div>
         )}
